@@ -1,0 +1,70 @@
+﻿@model Black_Swan.MVC.Models.OrderVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>OrderVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+   
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" name="productId" value="@ViewData["productId"]" />
+            <input type="hidden" name="quantity" value="@ViewData["quantity"]" />
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <input asp-for="Customerid" class="form-control" value="@User.Identity.Name" type="hidden" />
+
+            }
+            else
+            {
+                <a asp-action="Login " asp-controller="Users"></a>
+            }
+            <div class="form-group">
+                <label asp-for="Paymentmethod" class="control-label"></label>
+                <input asp-for="Paymentmethod" class="form-control" />
+                <span asp-validation-for="Paymentmethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Postalcode" class="control-label"></label>
+                <input asp-for="Postalcode" class="form-control" />
+                <span asp-validation-for="Postalcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Pay Off" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

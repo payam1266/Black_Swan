@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Black_Swan.MVC.Models.ProductVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsAvalaible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sellerid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brandId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cityId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productCategoryId)
+            </th> 
+            <th>
+                @Html.DisplayNameFor(model => model.productCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brand)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsAvalaible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sellerid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brandId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productCategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productCategory.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brand.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { item.id }) |
+                    @Html.ActionLink("Details", "Details", new { item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { item.id })
+
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
